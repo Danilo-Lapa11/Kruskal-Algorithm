@@ -13,6 +13,14 @@ for idx, row in db.iterrows():
 
 
 
+
+
+
+
+
+
+
+
 # vou add isso dps 
 
 # # calculando a distância entre os pontos usando lat e lon de cada aeroporto 
