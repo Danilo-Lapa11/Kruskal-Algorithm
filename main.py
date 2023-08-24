@@ -16,6 +16,22 @@ class Graph:
 		self.graph.append([p1, p2, round(w)])
 
 
+	def KruskalMST(self):
+
+		result = []
+
+		# An index variable, used for sorted edges
+		i = 0
+
+		# An index variable, used for result[]
+		e = 0
+
+		# ordena a lista do grafo pelo peso de cada aresta
+		self.graph = sorted(self.graph, key=lambda item: item[2])
+
+		parent = []
+		rank = []
+
 # Leitura da base de dados
 db = pd.read_csv('airports.csv')
 
@@ -31,6 +47,8 @@ g.addEdge('Yakutat', 59.50336056, -139.6602261, 'Yuma MCAS-Yuma International', 
 g.addEdge('Eglin Air Force Base', 30.48325, -86.5254, 'Northwest Arkansas Regional', 36.28186944, -94.30681111)
 g.addEdge('Yellowstone', 44.68839917, -111.1176375, 'Yuma MCAS-Yuma International', 32.65658333, -114.6059722)
 
+
+g.KruskalMST()	
 
 print(g.graph)
 

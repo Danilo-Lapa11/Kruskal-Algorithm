@@ -61,7 +61,7 @@ class Graph:
 		self.graph = sorted(self.graph,
 							key=lambda item: item[2])
 
-		parent = []
+		parent = [] 
 		rank = []
 
 		# Create V subsets with single elements
