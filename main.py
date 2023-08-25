@@ -54,9 +54,9 @@ class Graph:
 			parent.append(node)
 			rank.append(0)
 
-		while e < self.V - 1:
+		while i < (self.V - 1):
 			# armazena os valores da aresta de menor peso 
-			u, v, w = self.graph[i] 
+			u, v, w = self.graph[i]
 			i = i + 1
 
 			x = self.find(parent, u)
@@ -67,6 +67,9 @@ class Graph:
 				e = e + 1
 				MST_result.append([u, v, w])
 				self.union(parent, rank, x, y)
+
+		print(MST_result)
+		print(len(MST_result))
 
 
 # Leitura da base de dados
@@ -87,24 +90,9 @@ for idx, row in db.iterrows():
 
 	g.addEdge(airport_1, airport_2)
 
-
 g.KruskalMST()	
 
+print()
+
 print(g.graph)
-
-
-
-
-
-
-# PRINT A PARTIR DO INDICE DA BASE DE DADOS - pega os listas
-
-# import pandas as pd 
-
-# db = pd.read_csv('airports.csv')
-
-
-# indice_da_linha = 0
-# nome = db['AIRPORT'].iloc[indice_da_linha]
-
-# print(f'O nome na linha {indice_da_linha} é: {nome}')
+print(len(g.graph))
