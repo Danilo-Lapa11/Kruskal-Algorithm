@@ -8,29 +8,25 @@ class Graph:
 		self.graph = [] # Grafo
 
 	def addEdge(self, tupla1, tupla2):
-		
-		# # calculando a distância entre os pontos usando latitude e longitude de cada aeroporto 
-		w = gdist((tupla1[1], tupla1[2]), (tupla2[1], tupla2[2])).kilometers # peso da aresta = distancia em Km arredondados
 
+		# calculando a distância entre os pontos usando latitude e longitude de cada aeroporto 
+		w = gdist((tupla1[1], tupla1[2]), (tupla2[1], tupla2[2])).kilometers # peso da aresta = distancia em Km arredondados
 		self.graph.append([tupla1[0], tupla2[0], round(w)])
 
-	
+	# Encontrar o conjunto ao qual o vértice pertence
 	def find(self, parent, i):
 
 		if parent[i] != i:
 			parent[i] = self.find(parent, parent[i])
-
 		return parent[i]
 
-	
+	# Faz a união dos dois conjuntos por classificação
 	def union(self, parent, rank, x, y):
 
 		if rank[x] < rank[y]:
 			parent[x] = y
-
 		elif rank[x] > rank[y]:
 			parent[y] = x
-
 		else:
 			parent[y] = x
 			rank[x] += 1
@@ -38,9 +34,6 @@ class Graph:
 	def KruskalMST(self):
 
 		MST_result = []
-
-		# Iterador para as arestas ordenadas
-		i = 0
 		# Iterador para iterar a MST_result
 		e = 0
 
@@ -54,6 +47,8 @@ class Graph:
 			parent.append(node)
 			rank.append(0)
 
+		# Iterador para as arestas ordenadas
+		i = 0
 		while i < (self.V - 1):
 			# armazena os valores da aresta de menor peso 
 			u, v, w = self.graph[i]
@@ -68,9 +63,7 @@ class Graph:
 				MST_result.append([u, v, w])
 				self.union(parent, rank, x, y)
 
-		print(MST_result)
-		print(len(MST_result))
-
+		return MST_result
 
 # Leitura da base de dados
 db = pd.read_csv('airports.csv')
@@ -82,17 +75,11 @@ g = Graph(len(db))
 for idx, row in db.iterrows():
 
 	airport_1 = (idx , row['LATITUDE'], row['LONGITUDE'])
-
 	index_airport = row['Numero_Aleatorio'] # Index destino da Aresta
 	destiny_line = db.iloc[index_airport] # armazena o array da linha do Dataframe pelo index
-
 	airport_2 = (index_airport, destiny_line[5], destiny_line[6])
 
 	g.addEdge(airport_1, airport_2)
 
-g.KruskalMST()	
-
-print()
-
-print(g.graph)
-print(len(g.graph))
+# Cria a MST com o algoritmo de Kruskal
+MST = g.KruskalMST()	
