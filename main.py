@@ -82,4 +82,12 @@ for idx, row in db.iterrows():
 	g.addEdge(airport_1, airport_2)
 
 # Cria a MST com o algoritmo de Kruskal
-MST = g.KruskalMST()	
+MST = g.KruskalMST()
+
+#Imprime a Árvore de Spanning Mínimo (MST) com nomes de aeroportos
+
+for edge in MST:
+    airport1_idx, airport2_idx, distance = edge
+    airport1 = db.loc[airport1_idx, 'AIRPORT']
+    airport2 = db.loc[airport2_idx, 'AIRPORT']
+    print(f"{airport1} <--> {airport2}, Distance: {distance} km")
