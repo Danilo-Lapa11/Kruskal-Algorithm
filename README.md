@@ -7,6 +7,7 @@ The project conducted as part of the "Algorithms and Data Structures" course in 
 - Python
 - Pandas
 - Geopy
+- Networkx
 ## Running the code
 ![Vídeo sem título ‐ Feito com o Clipchamp](https://github.com/Danilo-Lapa11/Kruskal-Algorithm/assets/131052793/a93e94ca-3259-4ce1-8322-10f2fc5c741a)
 
