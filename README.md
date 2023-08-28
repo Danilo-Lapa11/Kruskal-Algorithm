@@ -21,9 +21,13 @@ In this graph, nodes were employed to represent various airports across the Unit
 
 ![Grafo completo](images/GrafoCompleto.png)
 
-### Minimum Spanning Tree
+### Minimum Spanning Tree (MST)
 
 ![MST](images/MST.png)
+
+### Terminal - MST
+
+![terminal](images/terminal.png)
 
 
 ## Contributors
