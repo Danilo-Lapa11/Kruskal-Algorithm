@@ -15,8 +15,15 @@ In this graph, nodes were employed to represent various airports across the Unit
 ## Running the code
 ![Vídeo sem título ‐ Feito com o Clipchamp](https://github.com/Danilo-Lapa11/Kruskal-Algorithm/assets/131052793/a93e94ca-3259-4ce1-8322-10f2fc5c741a)
 
+## :camera: Imagens
 
-![Grafo completo]()
+### Graph Completed
+
+![Grafo completo](images/GrafoCompleto.png)
+
+### Minimum Spanning Tree
+
+![MST](images/MST.png)
 
 
 ## Contributors
